@@ -1,24 +1,17 @@
 import axios from 'axios';
-<<<<<<< HEAD
 import React, { createContext, useState ,useEffect} from 'react'
-=======
-import React, { createContext, useEffect, useState } from 'react'
 import { toast } from 'react-toastify';
->>>>>>> 9e479ff77fa26fc4c5b8bb95b45ee21cf07b8ed7
 // import { teams } from '../assets/api/teams';
 
 export const AppContext = createContext();
 
 const AppContextProvider = (props) => {
-<<<<<<< HEAD
     // const [team, setTeam] = useState([])
-    const [tenderData, setTenderData] = useState([])
     const name = "SJC"
-=======
 
     // const [team, setTeam] = useState([])
     const [tenderData, setTenderData] = useState([])
->>>>>>> 9e479ff77fa26fc4c5b8bb95b45ee21cf07b8ed7
+    const [stockData, setStockData] = useState([])
     const backendUrl = import.meta.env.VITE_BACKEND_URL
     const [token , setToken] = useState(localStorage.getItem('token') ? localStorage.getItem('token') : false )
     const [userdata, setUserdata] = useState(false)
@@ -43,8 +36,23 @@ const AppContextProvider = (props) => {
             console.error("Error:", error);
         }
     }
+    const getStockData = async () => {
+        try {
+            const response = await axios.get(`${backendUrl}/api/stock`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,	
+                },
+            });
+            setStockData(response.data)
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    }
     useEffect(() => {  
-        gettenderData()
+        gettenderData(),
+        getStockData()
 
     }, [])
 
@@ -67,16 +75,15 @@ const AppContextProvider = (props) => {
         backendUrl,
         token,
         setToken,
-<<<<<<< HEAD
-=======
         logout,
         userdata,
         setUserdata,
         getUserData,
->>>>>>> 9e479ff77fa26fc4c5b8bb95b45ee21cf07b8ed7
         tenderData,
         setTenderData,
-        logout
+        logout,
+        stockData,
+        setStockData
     }
 
     useEffect(()=>{

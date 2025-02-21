@@ -3,11 +3,14 @@ import { AppContext } from "../context/AppContext";
 import { assets } from "../assets/assets";
 import { toast } from "react-toastify";
 import axios from "axios";
+import ProductForm from "../components/CreateStock";
 
 const ProfileDetail = () => {
   const { userdata, getUserData , setUserdata, backendUrl, token  } = useContext(AppContext);
   console.log(userdata);
-  
+  const [open, setOpen] = useState(false)
+  const [close, setClose] = useState(false)
+
   const [isEdit, setIsEdit] = useState(false)
   const [image,setImage] = useState(false)
 
@@ -39,7 +42,7 @@ const ProfileDetail = () => {
    }
 
   return (
-    <div className=" px-6 sm:px-[10%] mx-auto ml-10">
+    <div className=" px-6 sm:px-[10%] mx-auto ml-10 grid grid-cols-1 md:grid-cols-2 gap-10  pb-20">
 
       <div className=" max-w-lg flex flex-col gap-2 text-sm">
         {isEdit ? (
@@ -134,7 +137,12 @@ const ProfileDetail = () => {
             </div>
           </div>
         </div>
+          
       </div>
+      
+      <ProductForm></ProductForm>
+        
+
     </div>
   );
 };
