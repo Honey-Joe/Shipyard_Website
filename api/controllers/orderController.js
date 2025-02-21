@@ -1,17 +1,16 @@
 const Order = require("../models/Order");
 
-// Create a new order
+// ✅ Create a new order (User Only)
 exports.createOrder = async (req, res) => {
   try {
-    const { userId, serviceId, shipType, budget, preferredTechnology } = req.body;
-    const newOrder = await Order.create({ userId, serviceId, shipType, budget, preferredTechnology });
-    res.status(201).json({ message: "Order placed successfully", order: newOrder });
+    const order = await Order.create({ userId: req.user.userId, ...req.body });
+    res.status(201).json({ message: "Order placed successfully", order });
   } catch (error) {
-    res.status(500).json({ error: "Failed to create order" });
+    res.status(500).json({ error: "Failed to place order" });
   }
 };
 
-// Get all orders (Admin only)
+// ✅ Get all orders (Admin Only)
 exports.getAllOrders = async (req, res) => {
   try {
     const orders = await Order.find().populate("userId", "name email").populate("serviceId", "name");
@@ -21,36 +20,33 @@ exports.getAllOrders = async (req, res) => {
   }
 };
 
-// Get user's orders
+// ✅ Get orders for the logged-in user
 exports.getUserOrders = async (req, res) => {
   try {
-    const userId = req.user.userId;
-    const orders = await Order.find({ userId }).populate("serviceId", "name");
+    const orders = await Order.find({ userId: req.user.userId }).populate("serviceId", "name");
     res.json(orders);
   } catch (error) {
-    res.status(500).json({ error: "Failed to fetch user's orders" });
+    res.status(500).json({ error: "Failed to fetch user orders" });
   }
 };
 
-// Update order status (Admin only)
+// ✅ Update order status (Admin Only)
 exports.updateOrderStatus = async (req, res) => {
   try {
     const { status } = req.body;
-    const updatedOrder = await Order.findByIdAndUpdate(req.params.orderId, { status }, { new: true });
+    const updatedOrder = await Order.findByIdAndUpdate(req.params.id, { status }, { new: true });
     if (!updatedOrder) return res.status(404).json({ error: "Order not found" });
-
-    res.json({ message: "Order status updated successfully", order: updatedOrder });
+    res.json({ message: "Order status updated", updatedOrder });
   } catch (error) {
     res.status(500).json({ error: "Failed to update order status" });
   }
 };
 
-// Delete an order (Admin only)
+// ✅ Delete an order (Admin Only)
 exports.deleteOrder = async (req, res) => {
   try {
-    const deletedOrder = await Order.findByIdAndDelete(req.params.orderId);
+    const deletedOrder = await Order.findByIdAndDelete(req.params.id);
     if (!deletedOrder) return res.status(404).json({ error: "Order not found" });
-
     res.json({ message: "Order deleted successfully" });
   } catch (error) {
     res.status(500).json({ error: "Failed to delete order" });

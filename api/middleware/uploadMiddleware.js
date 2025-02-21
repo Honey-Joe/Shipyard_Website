@@ -1,17 +1,25 @@
 const multer = require("multer");
 const path = require("path");
+const fs = require("fs");
 
-// Configure storage for uploaded files
+// Ensure upload directories exist
+const createUploadFolder = (folder) => {
+  if (!fs.existsSync(folder)) {
+    fs.mkdirSync(folder, { recursive: true });
+  }
+};
+
+createUploadFolder("uploads/tenders");
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "uploads/tenders/"); // Save files in "uploads/tenders"
+    cb(null, "uploads/tenders/");
   },
   filename: function (req, file, cb) {
-    cb(null, Date.now() + path.extname(file.originalname)); // Unique filename
+    cb(null, Date.now() + path.extname(file.originalname));
   },
 });
 
-// File filter to allow only PDFs and DOCX files
 const fileFilter = (req, file, cb) => {
   const allowedTypes = ["application/pdf", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
   if (allowedTypes.includes(file.mimetype)) {
