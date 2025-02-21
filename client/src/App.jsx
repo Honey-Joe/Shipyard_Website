@@ -13,6 +13,7 @@ import Vigilance from './pages/Vigilance';
 import Login from './pages/Login';
 import Team from './pages/Team';
 import Profile from './pages/Profile';
+import ApplyTender from './pages/ApplyTender';
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
                   <Route path='/tender' element={<Tender/>}/>
                   <Route path='/vigilance' element={<Vigilance/>}/>
                   <Route path='/my-profile' element={<Profile/>}/>
+                  <Route path='/apply-tender' element={<ApplyTender/>}/>
                   <Route path='/login' element={<Login/>}/>
               </Routes>                         
             </div>

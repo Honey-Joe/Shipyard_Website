@@ -12,6 +12,7 @@ const AppContextProvider = (props) => {
     const backendUrl = import.meta.env.VITE_BACKEND_URL
     const [token , setToken] = useState(localStorage.getItem('token') ? localStorage.getItem('token') : false )
     const [userdata, setUserdata] = useState(false)
+    const [tenderid, setTenderId] = useState([{}])
     
     const logout =()=>{
         localStorage.removeItem('token')
@@ -29,6 +30,7 @@ const AppContextProvider = (props) => {
             
             console.log(response.data);  
             setTenderData(response.data)
+            setTenderId(response.data)
         } catch (error) {
             console.error("Error:", error);
         }
@@ -63,7 +65,9 @@ const AppContextProvider = (props) => {
         getUserData,
         tenderData,
         setTenderData,
-        logout
+        logout,
+        tenderid,
+        setTenderId
     }
 
     useEffect(()=>{
