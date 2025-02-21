@@ -3,6 +3,7 @@ export const logo = "https://ik.imagekit.io/jjyo3gsee/img/logo.png?updatedAt=174
 
 // map image 
 export const map = "https://ik.imagekit.io/jjyo3gsee/img/map.png?updatedAt=1740122893580"
+export const profile3 =  "https://ik.imagekit.io/jjyo3gsee/HI-Study/image/amico.png?updatedAt=1724493428593";
 
 // team images 
 export const team1 = "https://ik.imagekit.io/jjyo3gsee/img/team-1.jpg?updatedAt=1740122898105"
@@ -16,3 +17,5 @@ export const ser2 = "https://ik.imagekit.io/jjyo3gsee/img/service-2.jpg?updatedA
 export const ser3 = "https://ik.imagekit.io/jjyo3gsee/img/service-3.jpg?updatedAt=1740122893231"
 export const ser4 = "https://ik.imagekit.io/jjyo3gsee/img/service-4.jpg?updatedAt=1740122893543"
 export const ser5 = "https://ik.imagekit.io/jjyo3gsee/img/service-5.jpg?updatedAt=1740122893493"
+
+export const Aboutimg = "https://ik.imagekit.io/jjyo3gsee/img/about.jpg?updatedAt=1740122893489"
