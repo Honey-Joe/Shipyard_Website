@@ -1,8 +1,10 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const ServiceCard = ({img, des, service, id}) => {
+    const navigate = useNavigate();
   return (
-    <div>
+    <div onClick={()=>navigate(`/services/${id}`)} className=' cursor-pointer'>
         <div className=' p-4 bg-gray-50 rounded-lg shadow-lg hover:shadow-2xl transition-all border-2'>
             <img src={img} alt="Service Image" className=' rounded-lg' />
             <p className=' font-[poppins] text-base md:text-lg font-bold pt-3'>{service}</p>

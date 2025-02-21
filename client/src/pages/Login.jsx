@@ -1,30 +1,32 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../context/AppContext';
-// import axios from 'axios';
-// import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-import { BASE_URL } from '../BASE_URL';
+import axios from 'axios'
+
 
 const Login = () => {
 
-  //  const {token, backendUrl , setToken} = useContext(AppContext)
    const navigate = useNavigate()
-   const {backendUrl} = useContext(AppContext)
+   const {backendUrl, token, setToken} = useContext(AppContext)
 
   const [state, setState] = useState('Sign Up');
 
   const [email,setEmail] = useState('')
+  
   const [password,setPassword] = useState('')
   const [name,setName] = useState('')
 
   const onSubmitHandler = async (e)=>{
    e.preventDefault();
 
+  //  console.log(backendUrl)
+
    try {
 
       if(state === 'Sign Up'){
          
-         const {data} = await axios.post( backendUrl + '/api/user/register',{name,password,email})
+         const {data} = await axios.post( backendUrl + '/api/auth/register',{name,password,email})
          console.log(data);
          if (data.success) {
             localStorage.setItem('token',data.token)
@@ -37,10 +39,11 @@ const Login = () => {
       }
       else{
 
-         const {data} = await axios.post(backendUrl + '/api/user/login',{password,email})
+         const {data} = await axios.post(backendUrl + '/api/auth/login',{password,email})
          if (data.success) {
             localStorage.setItem('token',data.token)
             setToken(data.token)
+            toast.success("Login Successful")
          }
          else{
             toast.error(data.message)
@@ -80,7 +83,7 @@ const Login = () => {
             <p>Password</p>
             <input className=' border border-zinc-300 rounded-lg w-full p-2 mt-1' type="password" onChange={(e)=> setPassword(e.target.value)} value={password} required/>
          </div>
-         <button type='submit' className=' bg-primary w-full text-white py-2 rounded-md text-base'>{state === 'Sign Up' ? "Creat Account" : "Login"}</button>
+         <button type='submit' className=' bg-[#ff6600] w-full text-white py-2 rounded-md text-base'>{state === 'Sign Up' ? "Creat Account" : "Login"}</button>
          {
             state === "Sign Up" ?
             <p >Already have an account? <span onClick={()=>setState("Login")} className=' text-primary underline cursor-pointer'>Login here</span> </p> 
