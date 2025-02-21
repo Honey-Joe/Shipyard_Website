@@ -1,11 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { logo } from "../assets/api/image";
+import { AppContext } from '../context/AppContext';
+
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate()
+  const {token, logout} = useContext(AppContext)
+  
 
   return (
     <nav className="bg-white shadow-md w-full fixed top-0 z-50">
@@ -46,7 +50,23 @@ export default function Navbar() {
               <li className='py-1 list-none font-[poppins]'>Contact Us</li>
               <hr className='border-none outline-none bg-primary h-0.5 w-3/4 m-auto hidden'/>
             </NavLink>
-            <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 font-[poppins]" onClick={()=> navigate("/login")}>Create User</button>
+            
+            {
+               token ? <>
+                  <div className=' flex items-center gap-2 cursor-pointer group relative'>
+                     <img className=' w-8 rounded-full' src={logo} alt="" />
+                     {/* <img className=' w-2.5' src={assets.dropdown_icon} alt="" /> */}
+                     <div className=' group-hover:block hidden absolute top-0 right-0 pt-14 text-base font-medium text-gray-600 z-20'>
+                        <div className='min-w-48 rounded flex flex-col gap-4 p-4 '>
+                           <p onClick={()=> navigate('/my-profile')} className=' hover:text-black cursor-pointer'>My Profile</p>
+                           <p onClick={logout} className=' hover:text-black cursor-pointer'>Logout</p>
+                        </div>
+                     </div>  
+                  </div>
+               </> : 
+               <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 font-[poppins]" onClick={()=> navigate("/login")}>Create User</button>
+            }
+
           </div>
 
           {/* Mobile Menu Button */}
