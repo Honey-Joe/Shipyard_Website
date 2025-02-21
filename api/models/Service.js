@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 
 const serviceSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true },
-    description: { type: String, required: true },
-    category: { type: String, enum: ["Ship Building", "Ship Repair", "Marine Engineering", "Financials", "Facilities"], required: true },
-    image: { type: String }, // URL for service image
-    formFields: [{ name: String, type: String, required: Boolean }], // Dynamic form structure
+    name: { type: String, required: true }, // Service Name (Ship Building, Repair, etc.)
+    description: { type: String, required: true }, // Service Details
+    category: { type: String, enum: ["Ship Building", "Ship Repair", "Marine Engineering", "Financials", "Facilities"], required: true }, // Category
+    image: { type: String }, // Image URL of Service
+    available: { type: Boolean, default: true }, // Availability Status
   },
   { timestamps: true }
 );
