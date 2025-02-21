@@ -19,7 +19,6 @@ export const ser3 = "https://ik.imagekit.io/jjyo3gsee/img/service-3.jpg?updatedA
 export const ser4 = "https://ik.imagekit.io/jjyo3gsee/img/service-4.jpg?updatedAt=1740122893543"
 export const ser5 = "https://ik.imagekit.io/jjyo3gsee/img/service-5.jpg?updatedAt=1740122893493"
 
-<<<<<<< HEAD
 // profile page taps 
 export const coursetab1 = "https://ik.imagekit.io/HoneyJoe/Skiil%20grow/category-icon-image-2.svg?updatedAt=1726762611034"
 export const coursetab2 = "https://ik.imagekit.io/HoneyJoe/Skiil%20grow/category-icon-image-7.svg?updatedAt=1726762611030"
@@ -27,6 +26,4 @@ export const coursetab3 = "https://ik.imagekit.io/HoneyJoe/Skiil%20grow/category
 export const coursetab4 = "https://ik.imagekit.io/HoneyJoe/Skiil%20grow/category-icon-image-5.svg?updatedAt=1726762611106"
 export const coursetab5 = "https://ik.imagekit.io/HoneyJoe/Skiil%20grow/category-icon-image-1.svg?updatedAt=1726762610982"
 export const coursetab6 = "https://ik.imagekit.io/HoneyJoe/Skiil%20grow/category-icon-image-6.svg?updatedAt=1726762611062"
-=======
 export const Aboutimg = "https://ik.imagekit.io/jjyo3gsee/img/about.jpg?updatedAt=1740122893489"
->>>>>>> 3c12a63ce380ca5f453ff73718140005018396b8
