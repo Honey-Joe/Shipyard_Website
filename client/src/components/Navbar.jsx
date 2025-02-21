@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { logo } from "../assets/api/image";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate()
 
   return (
     <nav className="bg-white shadow-md w-full fixed top-0 z-50">
@@ -45,7 +46,7 @@ export default function Navbar() {
               <li className='py-1 list-none font-[poppins]'>Contact Us</li>
               <hr className='border-none outline-none bg-primary h-0.5 w-3/4 m-auto hidden'/>
             </NavLink>
-            <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 font-[poppins]">Create User</button>
+            <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 font-[poppins]" onClick={()=> navigate("/login")}>Create User</button>
           </div>
 
           {/* Mobile Menu Button */}

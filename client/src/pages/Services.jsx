@@ -13,7 +13,7 @@ const Services = () => {
             {
                 services.map((e,index)=>(
                     <div key={index}>
-                        <ServiceCard img={e.img} serevice={e.serivce} des={e.des} id={e.id}/>
+                        <ServiceCard img={e.img} service={e.serivce} des={e.des} id={e.id}/>
                     </div>
                 ))
             }
