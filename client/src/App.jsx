@@ -12,6 +12,7 @@ import Tender from './pages/Tender';
 import Vigilance from './pages/Vigilance';
 import Login from './pages/Login';
 import Team from './pages/Team';
+import Profile from './pages/Profile';
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
                   <Route path='/team' element={<Team/>}/>
                   <Route path='/tender' element={<Tender/>}/>
                   <Route path='/vigilance' element={<Vigilance/>}/>
+                  <Route path='/my-profile' element={<Profile/>}/>
                   <Route path='/login' element={<Login/>}/>
               </Routes>                         
             </div>

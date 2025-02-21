@@ -65,19 +65,19 @@ const Login = () => {
   return (
     <form
       onSubmit={onSubmitHandler}
-      className=" min-h-[80vh] flex items-center py-28"
+      className=" min-h-[80vh] flex items-center py-28 pt-32"
     >
       <div className=" flex flex-col gap-3 m-auto items-start p-8 min-w-[340px] sm:min-w-96 border rounded-xl text-zinc-600 text-sm shadow-lg">
         <p className=" text-2xl font-semibold">
           {state === "Sign Up" ? "Creat Account" : "Login"}
         </p>
-        <p>
+        <p className=" font-[poppins]">
           Please {state === "Sign Up" ? "sign up" : "log in"} up to book
           appointment
         </p>
         {state === "Sign Up" && (
           <div className=" w-full flex flex-col gap-2">
-            <p>Full Name</p>
+            <p className=" font-[poppins]">Full Name</p>
             <input
               className=" border border-zinc-300 rounded-lg w-full p-2 mt-1"
               type="text"
@@ -86,7 +86,7 @@ const Login = () => {
               required
             />
             <div className=" w-full">
-              <p>Company</p>
+              <p className=" font-[poppins]">Company</p>
               <input
                 className=" border border-zinc-300 rounded-lg w-full p-2 mt-1"
                 type="text"
@@ -96,7 +96,7 @@ const Login = () => {
               />
             </div>
             <div className=" w-full">
-              <p>Contact</p>
+              <p className=" font-[poppins]">Contact</p>
               <input
                 className=" border border-zinc-300 rounded-lg w-full p-2 mt-1"
                 type="text"
@@ -108,7 +108,7 @@ const Login = () => {
           </div>
         )}
         <div className=" w-full">
-          <p>Email</p>
+          <p className=" font-[poppins]">Email</p>
           <input
             className=" border border-zinc-300 rounded-lg w-full p-2 mt-1"
             type="email"
@@ -118,7 +118,7 @@ const Login = () => {
           />
         </div>
         <div className=" w-full">
-          <p>Password</p>
+          <p className=" font-[poppins]">Password</p>
           <input
             className=" border border-zinc-300 rounded-lg w-full p-2 mt-1"
             type="password"
@@ -130,26 +130,26 @@ const Login = () => {
 
         <button
           type="submit"
-          className=" bg-[#ff6600] w-full text-white py-2 rounded-md text-base"
+          className=" bg-[#ff6600] w-full text-white py-2 rounded-md text-base font-[poppins]"
         >
           {state === "Sign Up" ? "Creat Account" : "Login"}
         </button>
         {state === "Sign Up" ? (
-          <p>
+          <p className=" font-[poppins]">
             Already have an account?{" "}
             <span
               onClick={() => setState("Login")}
-              className=" text-primary underline cursor-pointer"
+              className=" text-primary underline cursor-pointer font-[poppins]"
             >
               Login here
             </span>{" "}
           </p>
         ) : (
-          <p>
+          <p className=" font-[poppins]">
             Create an new account ?{" "}
             <span
               onClick={() => setState("Sign Up")}
-              className=" text-primary underline cursor-pointer"
+              className=" text-primary underline cursor-pointer font-[poppins]"
             >
               click here
             </span>

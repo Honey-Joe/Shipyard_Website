@@ -1,4 +1,4 @@
-const User = require("../models/User");
+const User = require("../models/User"); // Ensure correct path
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -26,19 +26,53 @@ exports.getUserProfile = async (req, res) => {
 // Update user profile
 exports.updateUserProfile = async (req, res) => {
   try {
-    const { name, contact, company } = req.body;
-    const updatedUser = await User.findByIdAndUpdate(
-      req.user.userId,
-      { name, contact, company },
-      { new: true }
-    ).select("-passwordHash");
 
-    if (!updatedUser) return res.status(404).json({ error: "User not found" });
+    const {name, contact, company} = req.body;
+    const imageFile = req.file
 
-    res.json({ message: "Profile updated successfully", user: updatedUser });
-  } catch (error) {
-    res.status(500).json({ error: "Failed to update profile" });
-  }
+    if (!name || !contact || !company) {
+        return res.json({success:false, message:"data missing"})
+    }
+
+    await User.findByIdAndUpdate(req.user.userId,{name,contact,company})
+
+    if (imageFile) {
+        
+        // upload image to cloudinary
+        const imageUpload = await cloudinary.uploader.upload(imageFile.path,{resource_type:'image'})
+        const imageURL = imageUpload.secure_url
+
+        await User.findByIdAndUpdate(req.user.userId,{image:imageURL})
+    }
+
+    res.json({success:true, message:"profile updated"})
+        
+    } catch (error) {
+        console.log(error);
+        res.json({success:false, message:error.message})
+    }
+  // try {
+  //   const { name, contact, company } = req.body;
+  //   const imageFile = req.file;
+
+  //   const updatedUser = await User.findByIdAndUpdate(
+  //     req.user.userId,
+  //     { name, contact, company },
+  //   )
+
+  //   if (imageFile) {
+  //       const imageUpload = await cloudinary.uploader.upload(imageFile.path,{resource_type:'image'})
+  //       const imageURL = imageUpload.secure_url
+
+  //       await userModel.findByIdAndUpdate(req.user.userId,{image:imageURL})
+  //   }
+
+  //   if (!updatedUser) return res.status(404).json({ error: "User not found" });
+
+  //   res.json({ message: "Profile updated successfully", user: updatedUser });
+  // } catch (error) {
+  //   res.status(500).json({ error: "Failed to update profile" });
+  // }
 };
 
 // Update user password

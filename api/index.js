@@ -18,10 +18,11 @@ const tenderRoutes = require("./routes/tenderRoutes");
 const tenderApplicationRoutes = require("./routes/tenderApplicationRoutes");
 const stockRoutes = require("./routes/stockRoutes");
 const exportRequestRoutes = require("./routes/exportRequestRoutes");
+const connectCloudinary = require("./config/cloudinary");
 
 
 
-
+connectCloudinary();
 connectDB();
 const app = express();
 app.use(cors());
@@ -42,7 +43,6 @@ app.use("/api/tender-applications", tenderApplicationRoutes);
 app.use("/uploads/tenders", express.static(path.join(__dirname, "uploads/tenders")));
 app.use("/api/stock", stockRoutes);
 app.use("/api/exports", exportRequestRoutes);
-
 
 
 const PORT = process.env.PORT || 5000;
