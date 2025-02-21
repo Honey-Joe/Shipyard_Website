@@ -5,6 +5,9 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import ProfileDetail from './ProfileDetail';
+import ProductForm from '../components/CreateStock';
+import Inventory from '../components/Inventory';
+import ExportRequestForm from '../components/Export_Request';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -67,10 +70,10 @@ const Profile = () => {
         <ProfileDetail/>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        <Inventory></Inventory>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <ExportRequestForm></ExportRequestForm>
       </TabPanel>
     </Box>
     </div>
