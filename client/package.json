@@ -10,6 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
+=======
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+>>>>>>> 9e479ff77fa26fc4c5b8bb95b45ee21cf07b8ed7
     "@mui/material": "^6.4.5",
     "@radix-ui/react-select": "^2.1.6",
     "axios": "^1.7.9",
