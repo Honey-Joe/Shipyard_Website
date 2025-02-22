@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {CircleAlert, CookingPot, Activity, TrendingUpDown} from 'lucide-react'
+import { AdminContext } from '../context/AdminContext'
 
 const Dashboard = () => {
+  const {userData,stockData,tenderData} = useContext(AdminContext); 
   return (
     <div className=' m-5'>
       <div className=' flex flex-wrap gap-3'>
@@ -9,7 +11,7 @@ const Dashboard = () => {
         <div className=' flex items-center  gap-2 bg-white p-4 min-w-52 rounded border-2 border-gray-100 cursor-pointer hover:scale-105 transition-all'>
           <CircleAlert />
           <div>
-            {/* <p className=' text-xl font-semibold text-gray-600'>{dashData.doctors}</p> */}
+            <p className=' text-xl font-semibold text-gray-600'>{userData.length}</p>
             <p className=' text-gray-400'> Users </p>
           </div>
         </div>
@@ -17,7 +19,7 @@ const Dashboard = () => {
         <div className='flex items-center gap-2 bg-white p-4 min-w-52 rounded border-2 border-gray-100 cursor-pointer hover:scale-105 transition-all'>
             <Activity />
           <div>
-            {/* <p className=' text-xl font-semibold text-gray-600'>{dashData.appointment}</p> */}
+            <p className=' text-xl font-semibold text-gray-600'>{stockData.length}</p>
             <p className=' text-gray-400'> Stocks </p>
           </div>
         </div>
@@ -25,7 +27,7 @@ const Dashboard = () => {
         <div className='flex items-center gap-2 bg-white p-4 min-w-52 rounded border-2 border-gray-100 cursor-pointer hover:scale-105 transition-all'>
             <TrendingUpDown />
           <div>
-            {/* <p className=' text-xl font-semibold text-gray-600'>{dashData.patients}</p> */}
+            <p className=' text-xl font-semibold text-gray-600'>{tenderData.length}</p>
             <p className=' text-gray-400'> Tender </p>
           </div>
         </div>

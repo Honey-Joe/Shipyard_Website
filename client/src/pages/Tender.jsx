@@ -17,7 +17,7 @@ const Tender = () => {
           <p>All tenders</p>
         </div>
         
-        <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ' >
+        <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5' >
           {
             allTender.map((e,index)=>(
               <div key={index} className=' border p-4 rounded-lg'>

@@ -1,8 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AdminContext } from '../context/AdminContext'
 
 const UserManagement = () => {
+  const{tenderAppData} = useContext(AdminContext)
+  console.log(tenderAppData)
   return (
-    <div>UserManagement</div>
+    <div>
+
+      {
+        tenderAppData.map((e)=>{
+          return(
+            <>
+            {e.name}
+            </>
+          )
+        })
+      }
+    </div>
   )
 }
 

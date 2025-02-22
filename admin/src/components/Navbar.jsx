@@ -8,10 +8,10 @@ const Navbar = () => {
 
     const navigate = useNavigate()
     const {backendUrl} = useContext(AdminContext)
+    const aToken = localStorage.getItem('aToken')
 
     const logout = ()=>{
-        navigate('/')
-        aToken && setAToken('')
+        navigate('/login')
         aToken && localStorage.removeItem('aToken')
     }
 
@@ -21,7 +21,7 @@ const Navbar = () => {
             {/* <img className=" w-36 cursor-pointer sm:w-40" src={assets.admin_logo} alt="" /> */}
             <p className=" border px-2.5 rounded-full py-0.5 border-gray-500 text-gray-600">{'Admin'}</p>
         </div>
-        <button className=" bg-primary text-white text-sm px-10 py-2 rounded-full" onClick={logout}>Logout</button>
+        <button className=" bg-primary bg-red-500 text-white text-sm px-10 py-2 rounded-full" onClick={logout}>{aToken?(<>Logout</>):(<></>)}</button>
     </div>
   )
 }
