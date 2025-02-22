@@ -8,7 +8,10 @@ const TenderApplication = () => {
   console.log(tenderData);;
 
   return (
-    <div className='ml-20'> 
+    <div className='ml-20 py-20'>
+      <div>
+        <p className='text-3xl'>Tender Management</p>
+        </div> 
       <h1>
       <div className='grid md:grid-cols-3 grid-cols-1 gap-5 py-10'>
       {

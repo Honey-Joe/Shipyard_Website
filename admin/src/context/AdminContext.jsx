@@ -9,6 +9,7 @@ const AdminContextProvider = (props) => {
   const [userData, setUserData] = useState([]);
   const [stockData, setStockData] = useState([]);
   const [tenderData, setTenderData] = useState([]);
+  const [vigilanceData, setVigilanceData] = useState([]);
 
   const [aToken, setAToken] = useState(localStorage.getItem('aToken') ? localStorage.getItem('aToken') : '')
 
@@ -68,6 +69,25 @@ const AdminContextProvider = (props) => {
       toast.error('Something went wrong');
     }
   }
+  const getVigilanceData = async () => {
+    try {
+
+      const {data} = await axios.get(backendUrl+'api/vigilance', {
+        headers: {
+          Authorization: `Bearer ${aToken}`
+        }
+      })
+
+      setVigilanceData(data)
+
+      toast.success(data.message)
+      
+    } catch (error) {
+      console.log(error);
+      toast.error('Something went wrong');
+    }
+  }
+  
   const getTenderData = async () => {
     try {
 
@@ -98,7 +118,8 @@ const AdminContextProvider = (props) => {
         stockData,
         setStockData,
         tenderData,
-        tenderAppData
+        tenderAppData,
+        vigilanceData
     }
     useEffect(() => {
         if (aToken) {
@@ -106,6 +127,7 @@ const AdminContextProvider = (props) => {
             getStockData()
             getTenderData()
             getExportApplication()
+            getVigilanceData()
         }
     }, [aToken]);
   return (

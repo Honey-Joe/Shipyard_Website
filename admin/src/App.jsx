@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
 import TenderApplication from './pages/TenderApplication'
 import UserManagement from './pages/UserManagement'
+import VigilanceManagement from './pages/VigilanceManagement'
 
 const App = () => {
   const atoken = localStorage.getItem('aToken');
@@ -20,6 +21,7 @@ const App = () => {
           <Route path='/admin-dashboard' element={<Dashboard/>} />
           <Route path='/all-tenders' element={<TenderApplication/>} />
           <Route path='/user-management' element={<UserManagement></UserManagement>} />
+          <Route path='/vigilance' element={<VigilanceManagement></VigilanceManagement>} />
         </Routes>
       </div>
     </div>
