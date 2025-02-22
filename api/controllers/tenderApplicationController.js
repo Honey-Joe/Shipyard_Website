@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const TenderApplication = require("../models/TenderApplication");
 
-// Submit a new tender application (User Only)
+// 📌 Submit a new tender application (User Only)
 exports.submitTenderApplication = async (req, res) => {
   try {
     const { tenderId, companyName, bidAmount } = req.body;
@@ -24,7 +24,7 @@ exports.submitTenderApplication = async (req, res) => {
   }
 };
 
-// Get all applications for a tender (Admin Only)
+// 📌 Get all applications for a tender (Admin Only)
 exports.getTenderApplications = async (req, res) => {
   try {
     const applications = await TenderApplication.find({ tenderId: req.params.tenderId })
@@ -37,7 +37,7 @@ exports.getTenderApplications = async (req, res) => {
   }
 };
 
-// Get a user's tender applications
+// 📌 Get a user's tender applications
 exports.getUserApplications = async (req, res) => {
   try {
     const applications = await TenderApplication.find({ userId: req.user.userId }).populate("tenderId", "name");
@@ -47,7 +47,7 @@ exports.getUserApplications = async (req, res) => {
   }
 };
 
-// Update tender application status (Admin Only)
+// 📌 Update tender application status (Admin Only)
 exports.updateApplicationStatus = async (req, res) => {
   try {
     const { status } = req.body;
@@ -61,7 +61,7 @@ exports.updateApplicationStatus = async (req, res) => {
   }
 };
 
-// Delete a tender application (Admin Only)
+// 📌 Delete a tender application (Admin Only)
 exports.deleteTenderApplication = async (req, res) => {
   try {
     const application = await TenderApplication.findById(req.params.id);

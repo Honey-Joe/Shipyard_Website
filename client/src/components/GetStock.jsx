@@ -11,15 +11,15 @@ const GetStock = () => {
         <p>All Stock</p>
         <p>Total No.of. Stocks : {stockData.length}</p>
       </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5"> 
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5"> 
       {stockData.map((e) => {
         return (
           <>
-            <div className="flex flex-col gap-3 border border-black p-3 rounded-lg">
+            <div className="flex flex-col gap-5 border border-black p-3 rounded-lg">
                 <div>
                     <img src={e.images} alt=""  className="w-[350px]"/>
                 </div>
-                <div>
+                <div className="flex flex-col gap-2">
                     <div className="grid grid-cols-2">
                         <p>Name:</p>
                         <p>{e.name}</p>

@@ -8,6 +8,8 @@ import ProfileDetail from './ProfileDetail';
 import ProductForm from '../components/CreateStock';
 import Inventory from '../components/Inventory';
 import ExportRequestForm from '../components/Export_Request';
+import MyExports from '../components/MyExports';
+import TenderApplication from '../components/TenderApplication';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -21,7 +23,7 @@ function TabPanel(props) {
         {...other}
       >
         {value === index && (
-          <Box sx={{ p: 3 }}>
+          <Box sx={{ p: 4 }}>
             <Typography>{children}</Typography>
           </Box>
         )}
@@ -50,9 +52,9 @@ const Profile = () => {
   };
 
   return (
-    <div className=' sm:px-[10%] mx-auto px-6 pt-28 pb-[600px]'>
+    <div className=' sm:px-[10%] mx-auto px-6 pt-28 pb-[600px'>
         <Box
-      sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 224 }}
+      sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 1024}}
     >
       <Tabs
         orientation="vertical"
@@ -63,17 +65,21 @@ const Profile = () => {
         sx={{ borderRight: 1, borderColor: 'divider' }}
       >
         <Tab label="Profile" {...a11yProps(0)} />
-        <Tab label="Inventarory" {...a11yProps(1)} />
-        <Tab label="Exports" {...a11yProps(2)} />
+        <Tab label="Tender" {...a11yProps(1)} />
+        <Tab label="Inventory" {...a11yProps(2)} />
+        <Tab label="Exports" {...a11yProps(3)} />
       </Tabs>
       <TabPanel value={value} index={0}>
         <ProfileDetail/>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <Inventory></Inventory>
+        <TenderApplication></TenderApplication>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <ExportRequestForm></ExportRequestForm>
+        <Inventory></Inventory>
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        <MyExports></MyExports>
       </TabPanel>
     </Box>
     </div>
