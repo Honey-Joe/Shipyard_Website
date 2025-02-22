@@ -110,15 +110,11 @@ const AppContextProvider = (props) => {
         setExport,
         tenderData,
         setTenderData,
-<<<<<<< HEAD
         tenderid,
         setTenderId,
         stockData,
-        setStockData
-=======
         allTender,
         setAllTender,
->>>>>>> 08a6635d709379f1675d6ba4a37ca08950a11ee8
     }
 
     useEffect(()=>{
