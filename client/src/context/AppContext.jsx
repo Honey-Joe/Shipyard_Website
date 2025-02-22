@@ -83,14 +83,10 @@ const AppContextProvider = (props) => {
         getUserData,
         tenderData,
         setTenderData,
-        logout,
-<<<<<<< HEAD
         tenderid,
-        setTenderId
-=======
+        setTenderId,
         stockData,
         setStockData
->>>>>>> a07e45c894d16b934f23f27b7c8fe04445b592e5
     }
 
     useEffect(()=>{
