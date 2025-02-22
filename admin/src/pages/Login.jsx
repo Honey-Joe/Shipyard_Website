@@ -12,7 +12,7 @@ const Login = () => {
         event.preventDefault()
 
         try {
-            const {data} = await axios.post(backendUrl + '/api/auth/login', {email,password})
+            const {data} = await axios.post(backendUrl + 'api/auth/login', {email,password})
 
             localStorage.setItem('aToken',data.token)
             toast.success("Admin Logged in successfully")
