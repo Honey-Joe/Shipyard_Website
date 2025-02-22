@@ -3,6 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
 import { useNavigate } from 'react-router-dom';
+
 const Home = () => {
     const navigate = useNavigate()
     var settings = {
@@ -57,10 +58,10 @@ const Home = () => {
                     </div>
                     <div className=' absolute top-[33%] px-4 sm:px-[10%] z-50'>
                         <div className=' flex flex-col items-start gap-0'>
-                            <p className=' font-bold text-[12px] md:text-lg text-white font-[poppins]' >Lorem ipsum dolor sit amet.</p>
-                            <p className=' text-white text-[60px] md:text-[60px] lg:text-[70px] leading-tight font-bold font-[poppins]'>Lorem ipsum dolor sit amet. <br /> <span className=' text-[#77d9f4]'> Lorem, ipsum.</span></p>
-                            <p className=' text-base font-[poppins] text-white md:w-[70%] py-2'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo illo voluptates laborum magni numquam! Natus nam facilis velit totam tenetur repellendus iste pariatur, explicabo, harum cum nihil consequatur dolore. Numquam!</p>
-                            <button className=' bg-[#FF6600] text-white md:py-2 font-[poppins] md:px-6 rounded-lg py-3 px-6 md:text-base text-base my-5' onClick={()=>navigate("/login")}>Register</button>
+                            <p className=' font-bold text-[12px] md:text-lg text-white font-[poppins]'>Precision in Every Ship We Build</p>
+                            <p className=' text-white text-[60px] md:text-[60px] lg:text-[70px] leading-tight font-bold font-[poppins]'>Engineering Excellence <br /> <span className=' text-[#77d9f4]'> in Shipbuilding</span></p>
+                            <p className=' text-base font-[poppins] text-white md:w-[70%] py-2'>We design and construct state-of-the-art vessels, ensuring durability, efficiency, and innovation in every build. Join us in shaping the future of marine engineering.</p>
+                            <button className=' bg-[#FF6600] text-white md:py-2 font-[poppins] md:px-6 rounded-lg py-3 px-6 md:text-base text-base my-5' onClick={()=>navigate("/login")}>Get Started</button>
                         </div>
                     </div>
                 </div>
@@ -69,10 +70,10 @@ const Home = () => {
                     </div>
                     <div className=' absolute top-[33%] px-4 sm:px-[10%] z-50'>
                         <div className=' flex flex-col items-start gap-0'>
-                            <p className=' font-bold text-[12px] md:text-lg text-white font-[poppins]' >Lorem ipsum dolor sit amet.</p>
-                            <p className=' text-white text-[60px] md:text-[60px] lg:text-[70px] leading-tight font-bold font-[poppins]'>Lorem ipsum dolor sit amet. <br /> <span className=' text-[#77d9f4]'> Lorem, ipsum.</span></p>
-                            <p className=' text-base font-[poppins] text-white md:w-[70%] py-2'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo illo voluptates laborum magni numquam! Natus nam facilis velit totam tenetur repellendus iste pariatur, explicabo, harum cum nihil consequatur dolore. Numquam!</p>
-                            <button className='bg-[#FF6600] text-white md:py-2 font-[poppins] md:px-6 rounded-lg py-3 px-6 md:text-base text-base my-5' onClick={()=>navigate("/login")}>Register</button>
+                            <p className=' font-bold text-[12px] md:text-lg text-white font-[poppins]'>Innovating for a Sustainable Future</p>
+                            <p className=' text-white text-[60px] md:text-[60px] lg:text-[70px] leading-tight font-bold font-[poppins]'>Building Stronger, <br /> <span className=' text-[#77d9f4]'> Greener Ships</span></p>
+                            <p className=' text-base font-[poppins] text-white md:w-[70%] py-2'>Our commitment to sustainability drives us to create eco-friendly and fuel-efficient ships, revolutionizing the maritime industry.</p>
+                            <button className='bg-[#FF6600] text-white md:py-2 font-[poppins] md:px-6 rounded-lg py-3 px-6 md:text-base text-base my-5' onClick={()=>navigate("/login")}>Learn More</button>
                         </div>
                     </div>
                 </div>

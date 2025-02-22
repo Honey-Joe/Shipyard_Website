@@ -20,7 +20,7 @@ const TenderUpdateButton = ({tenderId}) => {
         }
       );
 
-      toast.success("Tender Approved Successfully");
+      toast.error("Tender Deleted Successfully");
       console.log(res.data);
     } catch (error) {
       console.error("Error updating tender:", error);
